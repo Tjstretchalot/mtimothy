@@ -1,0 +1,43 @@
+diff --git a/node_modules/react-scripts/config/getHttpsConfig.js b/node_modules/react-scripts/config/getHttpsConfig.js
+index 4fec793..da49328 100644
+--- a/node_modules/react-scripts/config/getHttpsConfig.js
++++ b/node_modules/react-scripts/config/getHttpsConfig.js
+@@ -14,6 +14,28 @@ const crypto = require('crypto');
+ const chalk = require('react-dev-utils/chalk');
+ const paths = require('./paths');
+ 
++function validateKeyAndCertsUsingSignAndVerify({ cert, key, keyFile, crtFile }) {
++  const data = Buffer.from( 'test' );
++  let signature;
++  try {
++    signature = crypto.sign( 'SHA256' , data , key );
++  } catch (err) {
++    throw new Error(
++      `The certificate key "${chalk.yellow(keyFile)}" is invalid.\n${
++        err.message
++      }`
++    );
++  }
++
++  try {
++    crypto.verify( 'SHA256' , data , cert , signature );
++  } catch (err) {
++    throw new Error(
++      `The certificate "${chalk.yellow(crtFile)}" is invalid.\n${err.message}`
++    );
++  }
++}
++
+ // Ensure the certificate and key provided are valid and if not
+ // throw an easy to debug error
+ function validateKeyAndCerts({ cert, key, keyFile, crtFile }) {
+@@ -22,6 +44,9 @@ function validateKeyAndCerts({ cert, key, keyFile, crtFile }) {
+     // publicEncrypt will throw an error with an invalid cert
+     encrypted = crypto.publicEncrypt(cert, Buffer.from('test'));
+   } catch (err) {    
++    if ( err.code === 'ERR_OSSL_EVP_OPERATION_NOT_SUPPORTED_FOR_THIS_KEYTYPE' ) {
++      return validateKeyAndCertsUsingSignAndVerify({ cert, key, keyFile, crtFile });
++    }
+     throw new Error(
+       `The certificate "${chalk.yellow(crtFile)}" is invalid.\n${err.message}`
+     );

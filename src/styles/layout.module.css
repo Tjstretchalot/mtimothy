@@ -1,0 +1,32 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.row_wrap {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.stack__container {
+  position: relative;
+  display: grid;
+  grid-template: 1fr / 1fr;
+  z-index: 0;
+}
+
+.stack__child {
+  grid-area: 1 / 1 / span 1 / span 1;
+  z-index: 0;
+}

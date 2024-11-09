@@ -1,3 +1,3 @@
-# JobHunt November 2024
+# Timothy Moore personal website
 
-This repository tracks efforts made to find a job after Oseh shutdown on or around 11/8/2024.
+Personal website
