@@ -11,7 +11,7 @@ export function WithVWC<T>(props: {
   component: (value: T) => ReactElement;
   immediate?: boolean;
 }): ReactElement {
-  const [_, forceUpdate] = useReducer((x) => x + 1, 0);
+  const forceUpdate = useReducer((x) => x + 1, 0)[1];
 
   useEffect(() => {
     if (props.immediate) {
@@ -47,7 +47,7 @@ export function WithVWC<T>(props: {
       }
       props.value.callbacks.remove(onChange);
     };
-  }, [props.value, props.immediate]);
+  }, [props.value, props.immediate, forceUpdate]);
 
   return props.component(props.value.get());
 }

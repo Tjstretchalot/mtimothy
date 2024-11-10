@@ -4,9 +4,9 @@ import styles from './layout.module.css';
 export const LAYOUT = {
   /** A flex column with justify-content start and align-items stretch */
   column: styles.column,
-  /** A flex row with justify-content start and align-items center (nowrap) */
+  /** A flex row with justify-content start and align-items stretch (nowrap) */
   row: styles.row,
-  /** A flex row with justify-content start, align-items center, and flex-wrap 1 */
+  /** A flex row with justify-content start, align-items stretch, and flex-wrap 1 */
   rowWrap: styles.row_wrap,
   /** Classes for stacking components on top of each other such that they take the same space */
   stack: {

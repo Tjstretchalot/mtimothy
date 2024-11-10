@@ -9,14 +9,14 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
 }
 
 .row_wrap {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
 }
 
 .stack__container {

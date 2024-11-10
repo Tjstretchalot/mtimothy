@@ -27,6 +27,13 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
     ]
   },
   "browserslist": {

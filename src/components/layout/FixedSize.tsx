@@ -14,9 +14,17 @@ export const FixedSize = (
     width: ValueWithCallbacks<number>;
     height: ValueWithCallbacks<number>;
     className?: string;
+
+    /**
+     * If set, we position absolutely to match the parent and hide any overflow.
+     * This is probably what you want if you are putting this as the root component
+     * to avoid the window size not changing to prevent overflow which would have
+     * been fixed if it was reported to javascript
+     */
+    allowParentToReflow?: boolean;
   }>
 ) => {
-  return (
+  const inner = (
     <WithStyleVWC
       style={useMapManyVWC([props.width, props.height], () => ({
         width: `${props.width.get()}px`,
@@ -33,4 +41,23 @@ export const FixedSize = (
       )}
     />
   );
+
+  if (props.allowParentToReflow) {
+    return (
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          overflow: 'hidden',
+        }}
+      >
+        {inner}
+      </div>
+    );
+  }
+
+  return inner;
 };

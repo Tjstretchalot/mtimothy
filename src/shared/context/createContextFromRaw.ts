@@ -1,10 +1,11 @@
+import { WIDTH_BREAKPOINTS } from '../../styles/breakpoints';
+import { SPACERS } from '../../styles/spacers';
 import { createWritableValueWithCallbacks } from '../callbacks/createWritableValueWithCallbacks';
 import { mapManyVWC } from '../callbacks/mapManyVWC';
 import { mapVWC } from '../callbacks/mapVWC';
 import { Context } from './Context';
 import { ContextRaw } from './ContextRaw';
 
-const WIDTH_BREAKPOINTS = [342, 576, 768, 992, 1200, 1400];
 /**
  * Attaches to the given data to create a context object. Can be detached using
  * the second return value.
@@ -24,14 +25,17 @@ export const createContextFromRaw = (
 
   const [contentWidthVWC, cleanupContentWidth] = mapVWC(windowWidthVWC, (v) => {
     if (v < WIDTH_BREAKPOINTS[0]) {
-      return v - 16;
+      return v - SPACERS.xsmall * 2;
     }
     for (let i = 1; i < WIDTH_BREAKPOINTS.length; i++) {
       if (v < WIDTH_BREAKPOINTS[i]) {
-        return WIDTH_BREAKPOINTS[i - 1];
+        return Math.min(WIDTH_BREAKPOINTS[i - 1], v - SPACERS.small * 2);
       }
     }
-    return WIDTH_BREAKPOINTS[WIDTH_BREAKPOINTS.length - 1];
+    return Math.min(
+      WIDTH_BREAKPOINTS[WIDTH_BREAKPOINTS.length - 1],
+      v - SPACERS.large * 2
+    );
   });
 
   const [leftPaddingVWC, cleanupLeftPadding] = mapManyVWC(
@@ -49,8 +53,8 @@ export const createContextFromRaw = (
     }
   );
 
-  const topPaddingVWC = createWritableValueWithCallbacks(16);
-  const bottomPaddingVWC = createWritableValueWithCallbacks(32);
+  const topPaddingVWC = createWritableValueWithCallbacks(SPACERS.medium);
+  const bottomPaddingVWC = createWritableValueWithCallbacks(SPACERS.large);
   const [contentHeightVWC, cleanupContentHeight] = mapManyVWC(
     [windowHeightVWC, topPaddingVWC, bottomPaddingVWC],
     () => {

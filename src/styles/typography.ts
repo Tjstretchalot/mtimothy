@@ -24,3 +24,12 @@ export const TYPOGRAPHY = {
   body: styles.body,
   fine: styles.fine,
 };
+
+/** Overrides typography-related properties for a specific effect */
+export const TYPOGRAPHY_MODIFIERS = {
+  /** line-height: 1 */
+  tight: styles.tight,
+
+  /** prevents line breaks */
+  noWrap: styles.noWrap,
+};
