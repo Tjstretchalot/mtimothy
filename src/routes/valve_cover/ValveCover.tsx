@@ -7,8 +7,6 @@ import { combineClasses } from '../../shared/rendering/combineClasses';
 import { useAttachedContext } from '../../shared/context/useAttachedContext';
 import { FixedSize } from '../../components/layout/FixedSize';
 import { VerticalSpacer } from '../../components/layout/VerticalSpacer';
-import { constantVWC } from '../../shared/callbacks/constantVWC';
-import { Padded } from '../../components/layout/Padded';
 import { SPACERS } from '../../styles/spacers';
 import { TYPOGRAPHY, TYPOGRAPHY_MODIFIERS } from '../../styles/typography';
 import { RESETS } from '../../styles/resets';
