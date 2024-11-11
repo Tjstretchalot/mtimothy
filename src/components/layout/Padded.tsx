@@ -130,6 +130,7 @@ export const Padded = (
     props.horizontal,
     props.vertical,
     props.all,
+    styleVWC,
   ]);
 
   return (

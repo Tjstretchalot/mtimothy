@@ -22,6 +22,7 @@ export const createContextFromRaw = (
     (v) => v
   );
   const [pixelRatioVWC, cleanupPixelRatio] = mapVWC(raw.pixelRatio, (v) => v);
+  const [printingVWC, cleanupPrinting] = mapVWC(raw.printing, (v) => v);
 
   const [contentWidthVWC, cleanupContentWidth] = mapVWC(windowWidthVWC, (v) => {
     if (v < WIDTH_BREAKPOINTS[0]) {
@@ -75,11 +76,13 @@ export const createContextFromRaw = (
       bottomPadding: bottomPaddingVWC,
       contentWidth: contentWidthVWC,
       contentHeight: contentHeightVWC,
+      printing: printingVWC,
     },
     () => {
       cleanupWindowWidth();
       cleanupWindowHeight();
       cleanupPixelRatio();
+      cleanupPrinting();
       cleanupContentWidth();
       cleanupLeftPadding();
       cleanupRightPadding();

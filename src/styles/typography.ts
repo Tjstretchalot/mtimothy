@@ -32,4 +32,7 @@ export const TYPOGRAPHY_MODIFIERS = {
 
   /** prevents line breaks */
   noWrap: styles.noWrap,
+
+  /** max-width: 80ch */
+  legibleMaxWidth: styles.legibleMaxWidth,
 };

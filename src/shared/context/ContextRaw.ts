@@ -8,4 +8,6 @@ export type ContextRaw = {
   windowHeight: ValueWithCallbacks<number>;
   /** The number of device pixels per logical pixel */
   pixelRatio: ValueWithCallbacks<number>;
+  /** If @media print would apply styles in css, false otherwise */
+  printing: ValueWithCallbacks<boolean>;
 };

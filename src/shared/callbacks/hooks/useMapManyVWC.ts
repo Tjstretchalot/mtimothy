@@ -38,6 +38,7 @@ export const useMapManyVWC = <T, U extends ValueWithCallbacks<T>, V>(
       cleanupAttacher();
       cleanupInner();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [result, ...values, mapper, opts?.outputEqualityFn, opts?.immediate]);
 
   return result;

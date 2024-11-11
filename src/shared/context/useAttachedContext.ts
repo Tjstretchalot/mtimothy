@@ -35,6 +35,9 @@ export const useAttachedContext = (): Context => {
       windowWidth: createWritableValueWithCallbacks(window.innerWidth),
       windowHeight: createWritableValueWithCallbacks(window.innerHeight),
       pixelRatio: createWritableValueWithCallbacks(window.devicePixelRatio),
+      printing: createWritableValueWithCallbacks(
+        window.matchMedia('print').matches
+      ),
     })[0];
   }
   return val;

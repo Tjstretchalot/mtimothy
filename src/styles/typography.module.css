@@ -59,3 +59,7 @@
 .noWrap {
   white-space: nowrap;
 }
+
+.legibleMaxWidth {
+  max-width: 80ch;
+}

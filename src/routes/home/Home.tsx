@@ -16,6 +16,11 @@ import { WithVWC } from '../../components/WithVWC';
 import { constantVWC } from '../../shared/callbacks/constantVWC';
 import { RowOrColumn } from '../../components/layout/RowOrColumn';
 import { RESETS } from '../../styles/resets';
+import { ValueWithCallbacks } from '../../shared/callbacks/ValueWithCallbacks';
+import { useWritableValueWithCallbacks } from '../../shared/callbacks/hooks/useWritableValueWithCallbacks';
+import { useMapManyVWC } from '../../shared/callbacks/hooks/useMapManyVWC';
+import { setVWC } from '../../shared/callbacks/setVWC';
+import { Context } from '../../shared/context/Context';
 
 export const Home = (): ReactElement => {
   const context = useAttachedContext();
@@ -48,32 +53,76 @@ export const Home = (): ReactElement => {
           )}
           style={{ borderBottomWidth: '1px', borderBottomStyle: 'solid' }}
         >
-          <div className={LAYOUT.rowWrap}>
-            <div className={LAYOUT.column}>
-              <VerticalSpacer height={0} flexGrow={1} />
-              <div
-                className={combineClasses(
-                  COLOR_CLASSES.color.primary.dark,
-                  TYPOGRAPHY_MODIFIERS.tight,
-                  TYPOGRAPHY.h1
-                )}
-              >
-                Timothy Moore
+          <div className={LAYOUT.row}>
+            <div className={LAYOUT.rowWrap} style={{ flexGrow: 1 }}>
+              <div className={LAYOUT.column}>
+                <VerticalSpacer height={0} flexGrow={1} />
+                <div
+                  className={combineClasses(
+                    COLOR_CLASSES.color.primary.dark,
+                    TYPOGRAPHY_MODIFIERS.tight,
+                    TYPOGRAPHY.h1
+                  )}
+                >
+                  Timothy Moore
+                </div>
+              </div>
+              <HorizontalSpacer width={0} flexGrow={1} />
+              <div className={LAYOUT.column}>
+                <VerticalSpacer height={SPACERS.small} flexGrow={1} />
+                <div
+                  className={combineClasses(
+                    COLOR_CLASSES.color.gray.gray,
+                    TYPOGRAPHY_MODIFIERS.tight,
+                    TYPOGRAPHY.body
+                  )}
+                >
+                  <ParserUnfriendlyEmail />
+                </div>
               </div>
             </div>
-            <HorizontalSpacer width={0} flexGrow={1} />
-            <div className={LAYOUT.column}>
-              <VerticalSpacer height={SPACERS.small} flexGrow={1} />
-              <div
-                className={combineClasses(
-                  COLOR_CLASSES.color.gray.gray,
-                  TYPOGRAPHY_MODIFIERS.tight,
-                  TYPOGRAPHY.body
-                )}
-              >
-                <ParserUnfriendlyEmail />
-              </div>
-            </div>
+
+            <WithVWC
+              value={context.printing}
+              component={(printing) =>
+                !printing ? (
+                  <></>
+                ) : (
+                  <>
+                    <div className={LAYOUT.column}>
+                      <VerticalSpacer height={0} flexGrow={1} />
+                      <div className={LAYOUT.row}>
+                        <div
+                          className={combineClasses(
+                            TYPOGRAPHY.fine,
+                            TYPOGRAPHY_MODIFIERS.tight,
+                            TYPOGRAPHY_MODIFIERS.noWrap,
+                            COLOR_CLASSES.color.gray.dark
+                          )}
+                        >
+                          Viewable at
+                        </div>
+                        <HorizontalSpacer width={SPACERS.xxsmall} />
+                        <a
+                          href="https://mtimothy.com"
+                          className={combineClasses(
+                            RESETS.anchor,
+                            TYPOGRAPHY.fine,
+                            TYPOGRAPHY_MODIFIERS.tight,
+                            COLOR_CLASSES.color.primary.dark
+                          )}
+                        >
+                          mtimothy.com
+                        </a>
+                      </div>
+                      <VerticalSpacer height={0} flexGrow={1} />
+                    </div>
+                    <HorizontalSpacer width={0} flexGrow={1} />
+                  </>
+                )
+              }
+              immediate
+            />
           </div>
           <VerticalSpacer height={SPACERS.medium} />
         </div>
@@ -139,48 +188,148 @@ export const Home = (): ReactElement => {
               </div>
 
               <VerticalSpacer height={SPACERS.small} />
-              <JobTitleLine
+              <Job
                 title="Oseh"
                 date="Mar '22 - Nov '24"
                 tags={['JS', 'Python']}
+                context={context}
+                description={{
+                  short: (
+                    <JobBodyParagraph small>
+                      Sole engineer; built website + mobile apps
+                    </JobBodyParagraph>
+                  ),
+                  long: (
+                    <>
+                      <JobBodyParagraph large>
+                        Technical co-founder at an unsuccessful startup in the
+                        mental wellness space. As the sole engineer, spun up
+                        infrastructure, built an API backend, website frontend,
+                        and ios/android apps.
+                      </JobBodyParagraph>
+                      <VerticalSpacer height={SPACERS.small} />
+                      <JobBodyParagraph large>
+                        The website / apps supported user authentication,
+                        subscription billing, video, audio, images, suggestions
+                        for content based on user ratings (1-4), and supported
+                        listing and filtering content.
+                      </JobBodyParagraph>
+                      <VerticalSpacer height={SPACERS.small} />
+                      <JobBodyParagraph large>
+                        The admin area allowed for extensive quick customization
+                        of the website and app simultaneously, including the
+                        ability to upload content (images, videos, audio files)
+                        that were automatically optimized, change onboarding
+                        (add or remove customizable screens), conduct surveys,
+                        request feedback, change what parts of the app required
+                        a subscription, and more.
+                      </JobBodyParagraph>
+                      <VerticalSpacer height={SPACERS.small} />
+                      <JobBodyParagraph large>
+                        The app design was provided via Figma from the other
+                        co-founders. The source code is available in the
+                        Projects section.
+                      </JobBodyParagraph>
+                      <VerticalSpacer height={SPACERS.xsmall} />
+                      <JobBodyParagraph small>
+                        Tools: Pulumi, Amazon Web Services (AWS) Elastic Load
+                        Balancer (ELB), AWS Elastic Cloud Compute (EC2), Nginx,
+                        RQLite, Redis, AWS Simple Storage Service (S3), AWS
+                        Simple Email Service (SES), Twilio, Stripe, iOS App
+                        Store, Android Play Store, Expo, GitHub, Git Large File
+                        Storage (LFS), ffmpeg, FastAPI, Pydantic, React, React
+                        Native, JSON Web Tokens (JWT), OAuth, Sign in with
+                        Google, Sign in with Apple, Passkeys, Websockets,
+                        Python, Javascript, TypeScript, SQL, Git, Linux
+                      </JobBodyParagraph>
+                    </>
+                  ),
+                }}
               />
-              <div
-                className={combineClasses(
-                  TYPOGRAPHY.fine,
-                  COLOR_CLASSES.color.gray.dark
-                )}
-              >
-                Sole engineer; built website + mobile apps
-              </div>
-              <VerticalSpacer height={SPACERS.small} />
-              <JobTitleLine
+              <JobSpacer printing={context.printing} />
+              <Job
                 title="Sourced By"
                 date="Aug '21 - Mar '22"
                 tags={['JS', 'Python']}
+                context={context}
+                description={{
+                  short: (
+                    <JobBodyParagraph small>
+                      Sole engineer; built the website
+                    </JobBodyParagraph>
+                  ),
+                  long: (
+                    <>
+                      <JobBodyParagraph large>
+                        Sole engineer at an unsuccessful startup in the food
+                        delivery space. As the sole engineer, spun up
+                        infrastructure, built an API backend, and built the
+                        website frontend.
+                      </JobBodyParagraph>
+                      <VerticalSpacer height={SPACERS.small} />
+                      <JobBodyParagraph large>
+                        Users would purchase food delivery as follows: sourced
+                        by would send them a text with a link. They would open
+                        the link and see a suggested menu (~3 items) valid for
+                        the upcoming week, to be made fresh to order in a
+                        commercial kitchen. They would accept the order and pay
+                        via stripe, or they could write back notes about what
+                        they didn't like which would be adjusted on our side and
+                        they would get a new menu.
+                      </JobBodyParagraph>
+                      <VerticalSpacer height={SPACERS.small} />
+                      <JobBodyParagraph large>
+                        During onboarding we would call the user and determine
+                        their allergies and food preferences, which would be
+                        input into the backend and used by the chef to build out
+                        menus as well as by the admin area to help facilite
+                        building menus for users that avoided allergens and
+                        matched preferences. Admin area also assisted with print
+                        collateral, ordering ingredients, marketing, and
+                        customer service.
+                      </JobBodyParagraph>
+                      <VerticalSpacer height={SPACERS.xsmall} />
+                      <JobBodyParagraph small>
+                        Tools: Pulumi, Amazon Web Services (AWS) Elastic Load
+                        Balancer (ELB), AWS Elastic Cloud Compute (EC2), Nginx,
+                        RQLite, Redis, AWS Simple Storage Service (S3), AWS
+                        Simple Email Service (SES), Twilio, Stripe, GitHub,
+                        FastAPI, Pydantic, React, Python, Javascript,
+                        TypeScript, SQL, Git, Linux
+                      </JobBodyParagraph>
+                    </>
+                  ),
+                }}
               />
-              <VerticalSpacer height={SPACERS.xxsmall} />
-              <div
-                className={combineClasses(
-                  TYPOGRAPHY.fine,
-                  COLOR_CLASSES.color.gray.dark
-                )}
-              >
-                Sole engineer; built website
-              </div>
-              <VerticalSpacer height={SPACERS.small} />
-              <JobTitleLine
+              <JobSpacer printing={context.printing} />
+              <Job
                 title="Alo Moves"
                 date="Oct '19 - Mar '21"
                 tags={['Ruby']}
+                context={context}
+                description={{
+                  short: (
+                    <JobBodyParagraph small>
+                      Backend software engineer in a team of 5
+                    </JobBodyParagraph>
+                  ),
+                  long: (
+                    <>
+                      <JobBodyParagraph large>
+                        Backend software engineer for existing Ruby on Rails
+                        project. Helped stabilize performance and costs during a
+                        period of rapid growth while accelerating feature
+                        development and improving analytics.
+                      </JobBodyParagraph>
+                      <VerticalSpacer height={SPACERS.xsmall} />
+                      <JobBodyParagraph small>
+                        Tools: Heroku, Postgres, Redis, memcached, Ruby on
+                        Rails, Ruby, SQL, Git, Linux
+                      </JobBodyParagraph>
+                    </>
+                  ),
+                }}
               />
-              <div
-                className={combineClasses(
-                  TYPOGRAPHY.fine,
-                  COLOR_CLASSES.color.gray.dark
-                )}
-              >
-                Backend software engineer in a team of 5
-              </div>
             </div>
             <VerticalSpacer height={SPACERS.medium} />
             <div
@@ -212,13 +361,10 @@ export const Home = (): ReactElement => {
                   COLOR_CLASSES.color.gray.dark
                 )}
               >
-                Frontend for my personal website
+                Personal website, including this resume
               </div>
               <VerticalSpacer height={SPACERS.small} />
-              <ProjectTitleLine
-                title="oseh.io"
-                src="github.com/orgs/meetoseh/repositories"
-              />
+              <ProjectTitleLine title="oseh.io" src="github.com/meetoseh" />
               <div
                 className={combineClasses(
                   TYPOGRAPHY.fine,
@@ -286,8 +432,12 @@ export const Home = (): ReactElement => {
             <VerticalSpacer height={SPACERS.medium} />
             <div
               className={LAYOUT.column}
-              style={{ paddingLeft: `${isVertical ? 0 : SPACERS.medium}px` }}
+              style={{
+                paddingLeft: `${isVertical ? 0 : SPACERS.medium}px`,
+                flexGrow: 1,
+              }}
             >
+              <VerticalSpacer height={0} flexGrow={1} />
               <div
                 className={combineClasses(
                   TYPOGRAPHY.h3,
@@ -302,6 +452,8 @@ export const Home = (): ReactElement => {
               <SkillLine title="Python" duration="4yr" />
               <VerticalSpacer height={SPACERS.small} />
               <SkillLine title="Javascript" duration="4yr" />
+              <VerticalSpacer height={SPACERS.small} />
+              <SkillLine title="Typescript" duration="4yr" />
               <VerticalSpacer height={SPACERS.small} />
               <SkillLine title="Ruby" duration="1yr" />
               <VerticalSpacer height={SPACERS.small} />
@@ -324,7 +476,7 @@ export const Home = (): ReactElement => {
               <SkillLine title="AWS" duration="6yr" />
               <VerticalSpacer height={SPACERS.small} />
               <SkillLine title="Linux" duration="6yr" />
-              <VerticalSpacer height={SPACERS.medium} />
+              <VerticalSpacer height={0} flexGrow={1} />
             </div>
           </div>,
         ]}
@@ -370,6 +522,26 @@ export const Home = (): ReactElement => {
     </FixedSize>
   );
 };
+
+const Job = (props: {
+  title: string;
+  date: string;
+  tags: string[];
+  context: Context;
+  description: {
+    short: ReactElement;
+    long: ReactElement;
+  };
+}): ReactElement => (
+  <>
+    <JobTitleLine title={props.title} date={props.date} tags={props.tags} />
+    <JobBodySwapper
+      printing={props.context.printing}
+      short={props.description.short}
+      long={props.description.long}
+    />
+  </>
+);
 
 const JobTitleLine = (props: {
   title: string;
@@ -430,6 +602,108 @@ const JobTags = (props: { tags: string[] }) => (
       </div>
     ))}
   </div>
+);
+
+const JobBodySwapper = (props: {
+  printing: ValueWithCallbacks<boolean>;
+  short: ReactElement;
+  long: ReactElement;
+}) => {
+  const readMoreVWC = useWritableValueWithCallbacks<boolean>(() => false);
+  const usingSmallVWC = useMapManyVWC(
+    [props.printing, readMoreVWC],
+    () => props.printing.get() || !readMoreVWC.get(),
+    { immediate: true }
+  );
+
+  return (
+    <>
+      <WithVWC
+        value={usingSmallVWC}
+        component={(small) =>
+          small ? (
+            props.short
+          ) : (
+            <>
+              <VerticalSpacer height={SPACERS.xxsmall} />
+              {props.long}
+            </>
+          )
+        }
+        immediate
+      />
+
+      <WithVWC
+        value={props.printing}
+        component={(printing) =>
+          printing ? (
+            <></>
+          ) : (
+            <>
+              <button
+                type="button"
+                className={combineClasses(
+                  RESETS.button,
+                  TYPOGRAPHY.fine,
+                  COLOR_CLASSES.color.primary.dark
+                )}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setVWC(readMoreVWC, !readMoreVWC.get());
+                }}
+              >
+                <WithVWC
+                  value={readMoreVWC}
+                  component={(readMore) =>
+                    readMore ? <>Read less</> : <>Read more</>
+                  }
+                />
+              </button>
+            </>
+          )
+        }
+        immediate
+      />
+    </>
+  );
+};
+
+const JobBodyParagraph = (
+  props: {
+    children: string;
+  } & (
+    | {
+        small: true;
+        large?: undefined;
+      }
+    | {
+        small?: undefined;
+        large: true;
+      }
+  )
+) => {
+  return (
+    <div
+      className={combineClasses(
+        props.small ? TYPOGRAPHY.fine : TYPOGRAPHY.body,
+        COLOR_CLASSES.color.gray.dark,
+        TYPOGRAPHY_MODIFIERS.legibleMaxWidth
+      )}
+      style={{ alignSelf: 'flex-start' }}
+    >
+      {props.children}
+    </div>
+  );
+};
+
+const JobSpacer = (props: { printing: ValueWithCallbacks<boolean> }) => (
+  <WithVWC
+    value={props.printing}
+    component={(printing) => (
+      <VerticalSpacer height={printing ? SPACERS.small : SPACERS.medium} />
+    )}
+    immediate
+  />
 );
 
 const SkillLine = (props: { title: string; duration: string }) => (

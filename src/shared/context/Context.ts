@@ -28,4 +28,7 @@ export type Context = {
 
   /** windowHeight - (topPadding + bottomPadding) */
   contentHeight: ValueWithCallbacks<number>;
+
+  /** true if @media print would apply styles, false if it would not */
+  printing: ValueWithCallbacks<boolean>;
 };
