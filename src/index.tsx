@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import './styles/resets.module.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from './routes/home/Home';
+import { ValveCover } from './routes/valve_cover/ValveCover';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,6 +15,10 @@ const router = createBrowserRouter(
     {
       path: '/',
       element: <Home />,
+    },
+    {
+      path: '/valve',
+      element: <ValveCover />,
     },
   ],
   {

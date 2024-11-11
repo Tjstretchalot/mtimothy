@@ -21,7 +21,11 @@ import { useWritableValueWithCallbacks } from '../../shared/callbacks/hooks/useW
 import { useMapManyVWC } from '../../shared/callbacks/hooks/useMapManyVWC';
 import { setVWC } from '../../shared/callbacks/setVWC';
 import { Context } from '../../shared/context/Context';
+import { PadSides } from '../../components/layout/PadSides';
 
+/**
+ * Printable resume; prints best around 761x1049
+ */
 export const Home = (): ReactElement => {
   const context = useAttachedContext();
 
@@ -40,12 +44,7 @@ export const Home = (): ReactElement => {
         value={context.topPadding}
         component={(h) => <VerticalSpacer height={h} />}
       />
-      <Padded
-        left={context.leftPadding}
-        right={context.rightPadding}
-        top={constantVWC(0)}
-        bottom={constantVWC(0)}
-      >
+      <PadSides context={context}>
         <div
           className={combineClasses(
             COLOR_CLASSES.border.gray.smoke,
@@ -126,7 +125,7 @@ export const Home = (): ReactElement => {
           </div>
           <VerticalSpacer height={SPACERS.medium} />
         </div>
-      </Padded>
+      </PadSides>
       <RowOrColumn
         width={context.windowWidth}
         breakpoint={WIDTH_BREAKPOINTS[0] * 2 + SPACERS.small * 2 + 1}
@@ -501,12 +500,7 @@ export const Home = (): ReactElement => {
         />
       </div>
       <VerticalSpacer height={SPACERS.medium} />
-      <Padded
-        left={context.leftPadding}
-        right={context.rightPadding}
-        top={constantVWC(0)}
-        bottom={constantVWC(0)}
-      >
+      <PadSides context={context}>
         <div
           className={combineClasses(
             COLOR_CLASSES.color.gray.gray,
@@ -516,7 +510,7 @@ export const Home = (): ReactElement => {
           Currently live in Greater Seattle Area, WA. US Citizen (born in US).
           Willing to relocate. Open to remote or in-person.
         </div>
-      </Padded>
+      </PadSides>
 
       <WithVWC
         value={context.bottomPadding}
