@@ -476,7 +476,10 @@ export const Home = (): ReactElement => {
               <SkillLine title="AWS" duration="6yr" />
               <VerticalSpacer height={SPACERS.small} />
               <SkillLine title="Linux" duration="6yr" />
-              <VerticalSpacer height={0} flexGrow={1} />
+              <VerticalSpacer
+                height={isVertical ? SPACERS.medium : 0}
+                flexGrow={1}
+              />
             </div>
           </div>,
         ]}
