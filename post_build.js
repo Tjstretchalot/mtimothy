@@ -1,8 +1,12 @@
 const fs = require('fs');
 
-fs.copyFile('build/index.html', 'build/valve.html', (err) => {
-  if (err) {
-    throw err;
-  }
-  console.log('Setup valve entrypoint');
-});
+const targets = ['valve', 'microsoft'];
+
+for (const target of targets) {
+  fs.copyFile('build/index.html', `build/${target}.html`, (err) => {
+    if (err) {
+      throw err;
+    }
+    console.log(`Setup ${target} entrypoint`);
+  });
+}
