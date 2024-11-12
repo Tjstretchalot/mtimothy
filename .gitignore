@@ -13,6 +13,7 @@
 /fullchain.pem
 /privkey.pem
 /start.bat
+/analyse.bat
 
 # notes not public
 /leads

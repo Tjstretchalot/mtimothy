@@ -15,11 +15,10 @@ import { WithVWC } from '../../components/WithVWC';
 import { RowOrColumn } from '../../components/layout/RowOrColumn';
 import { RESETS } from '../../styles/resets';
 import { ValueWithCallbacks } from '../../shared/callbacks/ValueWithCallbacks';
-import { useWritableValueWithCallbacks } from '../../shared/callbacks/hooks/useWritableValueWithCallbacks';
-import { useMapManyVWC } from '../../shared/callbacks/hooks/useMapManyVWC';
-import { setVWC } from '../../shared/callbacks/setVWC';
-import { Context } from '../../shared/context/Context';
 import { PadSides } from '../../components/layout/PadSides';
+import { Experience } from '../../components/specific/Experience';
+import { Paragraph } from '../../components/specific/Paragraph';
+import { ProjectTitleLine } from '../../components/specific/ProjectTitleLine';
 
 /**
  * Printable resume; prints best around 761x1049
@@ -185,147 +184,153 @@ export const Home = (): ReactElement => {
               </div>
 
               <VerticalSpacer height={SPACERS.small} />
-              <Job
-                title="Oseh"
-                date="Mar '22 - Nov '24"
-                tags={['JS', 'Python']}
+              <Experience
+                title="Full Stack Engineer"
+                subtitle="Oseh"
+                detail="Mar '22 - Nov '24"
+                highlight={'TypeScript/Python'}
                 context={context}
-                description={{
-                  short: (
-                    <JobBodyParagraph small>
-                      Sole engineer; built website + mobile apps
-                    </JobBodyParagraph>
-                  ),
-                  long: (
-                    <>
-                      <JobBodyParagraph large>
-                        Technical co-founder at an unsuccessful startup in the
-                        mental wellness space. As the sole engineer, spun up
-                        infrastructure, built an API backend, website frontend,
-                        and ios/android apps.
-                      </JobBodyParagraph>
-                      <VerticalSpacer height={SPACERS.small} />
-                      <JobBodyParagraph large>
-                        The website / apps supported user authentication,
-                        subscription billing, video, audio, images, suggestions
-                        for content based on user ratings (1-4), and supported
-                        listing and filtering content.
-                      </JobBodyParagraph>
-                      <VerticalSpacer height={SPACERS.small} />
-                      <JobBodyParagraph large>
-                        The admin area allowed for extensive quick customization
-                        of the website and app simultaneously, including the
-                        ability to upload content (images, videos, audio files)
-                        that were automatically optimized, change onboarding
-                        (add or remove customizable screens), conduct surveys,
-                        request feedback, change what parts of the app required
-                        a subscription, and more.
-                      </JobBodyParagraph>
-                      <VerticalSpacer height={SPACERS.small} />
-                      <JobBodyParagraph large>
-                        The app design was provided via Figma from the other
-                        co-founders. The source code is available in the
-                        Projects section.
-                      </JobBodyParagraph>
-                      <VerticalSpacer height={SPACERS.xsmall} />
-                      <JobBodyParagraph small>
-                        Tools: Pulumi, Amazon Web Services (AWS) Elastic Load
-                        Balancer (ELB), AWS Elastic Cloud Compute (EC2), Nginx,
-                        RQLite, Redis, AWS Simple Storage Service (S3), AWS
-                        Simple Email Service (SES), Twilio, Stripe, iOS App
-                        Store, Android Play Store, Expo, GitHub, Git Large File
-                        Storage (LFS), ffmpeg, FastAPI, Pydantic, React, React
-                        Native, JSON Web Tokens (JWT), OAuth, Sign in with
-                        Google, Sign in with Apple, Passkeys, Websockets,
-                        Python, Javascript, TypeScript, SQL, Git, Linux
-                      </JobBodyParagraph>
-                    </>
-                  ),
-                }}
+                short={
+                  <Paragraph small>
+                    Built and shipped a website and mobile apps
+                  </Paragraph>
+                }
+                long={
+                  <>
+                    <Paragraph large>
+                      Technical co-founder at an unsuccessful startup in the
+                      mental wellness space. As the sole engineer, spun up
+                      infrastructure, built an API backend, website frontend,
+                      and ios/android apps.
+                    </Paragraph>
+                    <VerticalSpacer height={SPACERS.small} />
+                    <Paragraph large>
+                      The website / apps supported user authentication,
+                      subscription billing, video, audio, images, suggestions
+                      for content based on user ratings (1-4), and supported
+                      listing and filtering content.
+                    </Paragraph>
+                    <VerticalSpacer height={SPACERS.small} />
+                    <Paragraph large>
+                      The admin area allowed for extensive quick customization
+                      of the website and app simultaneously, including the
+                      ability to upload content (images, videos, audio files)
+                      that were automatically optimized, change onboarding (add
+                      or remove customizable screens), conduct surveys, request
+                      feedback, change what parts of the app required a
+                      subscription, and more.
+                    </Paragraph>
+                    <VerticalSpacer height={SPACERS.small} />
+                    <Paragraph large>
+                      The app design was provided via Figma from the other
+                      co-founders. View the code at{' '}
+                      <a
+                        href="https://github.com/meetoseh"
+                        className={combineClasses(
+                          RESETS.anchor,
+                          COLOR_CLASSES.color.primary.dark
+                        )}
+                        style={{ display: 'inline' }}
+                      >
+                        github.com/meetoseh
+                      </a>
+                    </Paragraph>
+                    <VerticalSpacer height={SPACERS.xsmall} />
+                    <Paragraph small>
+                      Tools: Pulumi, Amazon Web Services (AWS) Elastic Load
+                      Balancer (ELB), AWS Elastic Cloud Compute (EC2), Nginx,
+                      RQLite, Redis, AWS Simple Storage Service (S3), AWS Simple
+                      Email Service (SES), Twilio, Stripe, iOS App Store,
+                      Android Play Store, Expo, GitHub, Git Large File Storage
+                      (LFS), ffmpeg, FastAPI, Pydantic, React, React Native,
+                      JSON Web Tokens (JWT), OAuth, Sign in with Google, Sign in
+                      with Apple, Passkeys, Websockets, Python, Javascript,
+                      TypeScript, SQL, Git, Linux
+                    </Paragraph>
+                  </>
+                }
               />
               <JobSpacer printing={context.printing} />
-              <Job
-                title="Sourced By"
-                date="Aug '21 - Mar '22"
-                tags={['JS', 'Python']}
+              <Experience
+                title="Full Stack Engineer"
+                subtitle="sourced by"
+                detail="Aug '21 - Mar '22"
+                highlight="TypeScript/Python"
                 context={context}
-                description={{
-                  short: (
-                    <JobBodyParagraph small>
-                      Sole engineer; built the website
-                    </JobBodyParagraph>
-                  ),
-                  long: (
-                    <>
-                      <JobBodyParagraph large>
-                        Sole engineer at an unsuccessful startup in the food
-                        delivery space. As the sole engineer, spun up
-                        infrastructure, built an API backend, and built the
-                        website frontend.
-                      </JobBodyParagraph>
-                      <VerticalSpacer height={SPACERS.small} />
-                      <JobBodyParagraph large>
-                        Users would purchase food delivery as follows: sourced
-                        by would send them a text with a link. They would open
-                        the link and see a suggested menu (~3 items) valid for
-                        the upcoming week, to be made fresh to order in a
-                        commercial kitchen. They would accept the order and pay
-                        via stripe, or they could write back notes about what
-                        they didn't like which would be adjusted on our side and
-                        they would get a new menu.
-                      </JobBodyParagraph>
-                      <VerticalSpacer height={SPACERS.small} />
-                      <JobBodyParagraph large>
-                        During onboarding we would call the user and determine
-                        their allergies and food preferences, which would be
-                        input into the backend and used by the chef to build out
-                        menus as well as by the admin area to help facilite
-                        building menus for users that avoided allergens and
-                        matched preferences. Admin area also assisted with print
-                        collateral, ordering ingredients, marketing, and
-                        customer service.
-                      </JobBodyParagraph>
-                      <VerticalSpacer height={SPACERS.xsmall} />
-                      <JobBodyParagraph small>
-                        Tools: Pulumi, Amazon Web Services (AWS) Elastic Load
-                        Balancer (ELB), AWS Elastic Cloud Compute (EC2), Nginx,
-                        RQLite, Redis, AWS Simple Storage Service (S3), AWS
-                        Simple Email Service (SES), Twilio, Stripe, GitHub,
-                        FastAPI, Pydantic, React, Python, Javascript,
-                        TypeScript, SQL, Git, Linux
-                      </JobBodyParagraph>
-                    </>
-                  ),
-                }}
+                short={
+                  <Paragraph small>
+                    Built and shipped a responsive website
+                  </Paragraph>
+                }
+                long={
+                  <>
+                    <Paragraph large>
+                      Sole engineer at an unsuccessful startup in the food
+                      delivery space. As the sole engineer, spun up
+                      infrastructure, built an API backend, and built the
+                      website frontend.
+                    </Paragraph>
+                    <VerticalSpacer height={SPACERS.small} />
+                    <Paragraph large>
+                      Users would purchase food delivery as follows: sourced by
+                      would send them a text with a link. They would open the
+                      link and see a suggested menu (~3 items) valid for the
+                      upcoming week, to be made fresh to order in a commercial
+                      kitchen. They would accept the order and pay via stripe,
+                      or they could write back notes about what they didn't like
+                      which would be adjusted on our side and they would get a
+                      new menu.
+                    </Paragraph>
+                    <VerticalSpacer height={SPACERS.small} />
+                    <Paragraph large>
+                      During onboarding we would call the user and determine
+                      their allergies and food preferences, which would be input
+                      into the backend and used by the chef to build out menus
+                      as well as by the admin area to help facilite building
+                      menus for users that avoided allergens and matched
+                      preferences. Admin area also assisted with print
+                      collateral, ordering ingredients, marketing, and customer
+                      service.
+                    </Paragraph>
+                    <VerticalSpacer height={SPACERS.xsmall} />
+                    <Paragraph small>
+                      Tools: Pulumi, Amazon Web Services (AWS) Elastic Load
+                      Balancer (ELB), AWS Elastic Cloud Compute (EC2), Nginx,
+                      RQLite, Redis, AWS Simple Storage Service (S3), AWS Simple
+                      Email Service (SES), Twilio, Stripe, GitHub, FastAPI,
+                      Pydantic, React, Python, Javascript, TypeScript, SQL, Git,
+                      Linux
+                    </Paragraph>
+                  </>
+                }
               />
               <JobSpacer printing={context.printing} />
-              <Job
-                title="Alo Moves"
-                date="Oct '19 - Mar '21"
-                tags={['Ruby']}
+              <Experience
+                title="Backend Engineer"
+                subtitle="Alo Moves"
+                detail="Oct '19 - Mar '21"
+                highlight="Ruby on Rails"
                 context={context}
-                description={{
-                  short: (
-                    <JobBodyParagraph small>
-                      Backend software engineer in a team of 5
-                    </JobBodyParagraph>
-                  ),
-                  long: (
-                    <>
-                      <JobBodyParagraph large>
-                        Backend software engineer for existing Ruby on Rails
-                        project. Helped stabilize performance and costs during a
-                        period of rapid growth while accelerating feature
-                        development and improving analytics.
-                      </JobBodyParagraph>
-                      <VerticalSpacer height={SPACERS.xsmall} />
-                      <JobBodyParagraph small>
-                        Tools: Heroku, Postgres, Redis, memcached, Ruby on
-                        Rails, Ruby, SQL, Git, Linux
-                      </JobBodyParagraph>
-                    </>
-                  ),
-                }}
+                short={
+                  <Paragraph small>
+                    Shipped APIs and improved stability
+                  </Paragraph>
+                }
+                long={
+                  <>
+                    <Paragraph large>
+                      Backend software engineer for existing Ruby on Rails
+                      project. Helped stabilize performance and costs during a
+                      period of rapid growth while accelerating feature
+                      development and improving analytics.
+                    </Paragraph>
+                    <VerticalSpacer height={SPACERS.xsmall} />
+                    <Paragraph small>
+                      Tools: Heroku, Postgres, Redis, memcached, Ruby on Rails,
+                      Ruby, SQL, Git, Linux
+                    </Paragraph>
+                  </>
+                }
               />
             </div>
             <VerticalSpacer height={SPACERS.medium} />
@@ -345,7 +350,7 @@ export const Home = (): ReactElement => {
                   COLOR_CLASSES.color.primary.dark
                 )}
               >
-                Projects
+                Open Source
               </div>
               <VerticalSpacer height={SPACERS.small} />
               <ProjectTitleLine
@@ -358,17 +363,7 @@ export const Home = (): ReactElement => {
                   COLOR_CLASSES.color.gray.dark
                 )}
               >
-                Personal website, including this resume
-              </div>
-              <VerticalSpacer height={SPACERS.small} />
-              <ProjectTitleLine title="oseh.io" src="github.com/meetoseh" />
-              <div
-                className={combineClasses(
-                  TYPOGRAPHY.fine,
-                  COLOR_CLASSES.color.gray.dark
-                )}
-              >
-                JS/Python full stack
+                Built this resume, hosted on GitHub pages
               </div>
               <VerticalSpacer height={SPACERS.small} />
               <ProjectTitleLine
@@ -381,7 +376,7 @@ export const Home = (): ReactElement => {
                   COLOR_CLASSES.color.gray.dark
                 )}
               >
-                Python client for rqlite
+                Built a python client for rqlite
               </div>
               <VerticalSpacer height={SPACERS.small} />
               <ProjectTitleLine
@@ -394,7 +389,7 @@ export const Home = (): ReactElement => {
                   COLOR_CLASSES.color.gray.dark
                 )}
               >
-                Python library to generate videos
+                Built a python library for making videos
               </div>
               <VerticalSpacer height={SPACERS.small} />
               <ProjectTitleLine
@@ -407,7 +402,7 @@ export const Home = (): ReactElement => {
                   COLOR_CLASSES.color.gray.dark
                 )}
               >
-                C# math library for 2D collision detection
+                Built a C# library for 2D collision detection
               </div>
               <VerticalSpacer height={SPACERS.small} />
               <ProjectTitleLine
@@ -420,13 +415,12 @@ export const Home = (): ReactElement => {
                   COLOR_CLASSES.color.gray.dark
                 )}
               >
-                C# any-angle pathfinding algorithm
+                Built a C# library for pathfinding
               </div>
             </div>
             <VerticalSpacer height={SPACERS.medium} />
           </div>,
           <div key={1} className={LAYOUT.column} style={{ flexGrow: 0 }}>
-            <VerticalSpacer height={SPACERS.medium} />
             <div
               className={LAYOUT.column}
               style={{
@@ -518,179 +512,6 @@ export const Home = (): ReactElement => {
   );
 };
 
-const Job = (props: {
-  title: string;
-  date: string;
-  tags: string[];
-  context: Context;
-  description: {
-    short: ReactElement;
-    long: ReactElement;
-  };
-}): ReactElement => (
-  <>
-    <JobTitleLine title={props.title} date={props.date} tags={props.tags} />
-    <JobBodySwapper
-      printing={props.context.printing}
-      short={props.description.short}
-      long={props.description.long}
-    />
-  </>
-);
-
-const JobTitleLine = (props: {
-  title: string;
-  date: string;
-  tags?: string[];
-}) => (
-  <div className={LAYOUT.rowWrap}>
-    <div
-      className={combineClasses(
-        TYPOGRAPHY.title,
-        TYPOGRAPHY_MODIFIERS.tight,
-        COLOR_CLASSES.color.gray.dark
-      )}
-    >
-      {props.title}
-    </div>
-    <HorizontalSpacer
-      width={SPACERS.xxsmall}
-      flexGrow={1}
-      maxWidth={SPACERS.xsmall}
-    />
-    <div className={LAYOUT.column}>
-      <VerticalSpacer height={0} flexGrow={1} />
-      <div
-        className={combineClasses(
-          TYPOGRAPHY.fine,
-          TYPOGRAPHY_MODIFIERS.tight,
-          COLOR_CLASSES.color.gray.gray
-        )}
-      >
-        {props.date}
-      </div>
-    </div>
-    {props.tags !== undefined && props.tags.length > 0 && (
-      <>
-        <HorizontalSpacer width={SPACERS.xxsmall} flexGrow={1} />
-        <div className={LAYOUT.column}>
-          <VerticalSpacer height={0} flexGrow={1} />
-          <JobTags tags={props.tags} />
-        </div>
-      </>
-    )}
-  </div>
-);
-
-const JobTags = (props: { tags: string[] }) => (
-  <div className={LAYOUT.rowWrap} style={{ gap: `${SPACERS.xsmall}px` }}>
-    {props.tags.map((tag, i) => (
-      <div
-        key={i}
-        className={combineClasses(
-          TYPOGRAPHY.fine,
-          TYPOGRAPHY_MODIFIERS.tight,
-          COLOR_CLASSES.color.gray.gray
-        )}
-      >
-        {tag}
-      </div>
-    ))}
-  </div>
-);
-
-const JobBodySwapper = (props: {
-  printing: ValueWithCallbacks<boolean>;
-  short: ReactElement;
-  long: ReactElement;
-}) => {
-  const readMoreVWC = useWritableValueWithCallbacks<boolean>(() => false);
-  const usingSmallVWC = useMapManyVWC(
-    [props.printing, readMoreVWC],
-    () => props.printing.get() || !readMoreVWC.get(),
-    { immediate: true }
-  );
-
-  return (
-    <>
-      <WithVWC
-        value={usingSmallVWC}
-        component={(small) =>
-          small ? (
-            props.short
-          ) : (
-            <>
-              <VerticalSpacer height={SPACERS.xxsmall} />
-              {props.long}
-            </>
-          )
-        }
-        immediate
-      />
-
-      <WithVWC
-        value={props.printing}
-        component={(printing) =>
-          printing ? (
-            <></>
-          ) : (
-            <>
-              <button
-                type="button"
-                className={combineClasses(
-                  RESETS.button,
-                  TYPOGRAPHY.fine,
-                  COLOR_CLASSES.color.primary.dark
-                )}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setVWC(readMoreVWC, !readMoreVWC.get());
-                }}
-              >
-                <WithVWC
-                  value={readMoreVWC}
-                  component={(readMore) =>
-                    readMore ? <>Read less</> : <>Read more</>
-                  }
-                />
-              </button>
-            </>
-          )
-        }
-        immediate
-      />
-    </>
-  );
-};
-
-const JobBodyParagraph = (
-  props: {
-    children: string;
-  } & (
-    | {
-        small: true;
-        large?: undefined;
-      }
-    | {
-        small?: undefined;
-        large: true;
-      }
-  )
-) => {
-  return (
-    <div
-      className={combineClasses(
-        props.small ? TYPOGRAPHY.fine : TYPOGRAPHY.body,
-        COLOR_CLASSES.color.gray.dark,
-        TYPOGRAPHY_MODIFIERS.legibleMaxWidth
-      )}
-      style={{ alignSelf: 'flex-start' }}
-    >
-      {props.children}
-    </div>
-  );
-};
-
 const JobSpacer = (props: { printing: ValueWithCallbacks<boolean> }) => (
   <WithVWC
     value={props.printing}
@@ -702,44 +523,27 @@ const JobSpacer = (props: { printing: ValueWithCallbacks<boolean> }) => (
 );
 
 const SkillLine = (props: { title: string; duration: string }) => (
-  <div className={LAYOUT.row}>
-    <div className={LAYOUT.column}>
-      <VerticalSpacer height={0} flexGrow={1} />
-      <div
-        className={combineClasses(
-          TYPOGRAPHY.title,
-          TYPOGRAPHY_MODIFIERS.tight,
-          TYPOGRAPHY_MODIFIERS.noWrap,
-          COLOR_CLASSES.color.gray.dark
-        )}
-      >
-        {props.title}
-      </div>
+  <div className={LAYOUT.row} style={{ alignItems: 'flex-end' }}>
+    <div
+      className={combineClasses(
+        TYPOGRAPHY.title,
+        TYPOGRAPHY_MODIFIERS.tight,
+        TYPOGRAPHY_MODIFIERS.noWrap,
+        COLOR_CLASSES.color.gray.dark
+      )}
+    >
+      {props.title}
     </div>
     <HorizontalSpacer width={SPACERS.medium} flexGrow={1} />
-    <div className={LAYOUT.column}>
-      <VerticalSpacer height={0} flexGrow={1} />
-      <div
-        className={combineClasses(
-          TYPOGRAPHY.fine,
-          TYPOGRAPHY_MODIFIERS.tight,
-          TYPOGRAPHY_MODIFIERS.noWrap,
-          COLOR_CLASSES.color.gray.gray
-        )}
-      >
-        {props.duration}
-      </div>
+    <div
+      className={combineClasses(
+        TYPOGRAPHY.fine,
+        TYPOGRAPHY_MODIFIERS.tight,
+        TYPOGRAPHY_MODIFIERS.noWrap,
+        COLOR_CLASSES.color.gray.gray
+      )}
+    >
+      {props.duration}
     </div>
   </div>
-);
-
-const ProjectTitleLine = (props: { title: string; src: string }) => (
-  <a
-    href={`https://${props.src}`}
-    className={RESETS.anchor}
-    target="_blank"
-    rel="noreferrer"
-  >
-    <JobTitleLine title={props.title} date={props.src} />
-  </a>
 );
