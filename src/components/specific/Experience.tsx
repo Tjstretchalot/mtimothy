@@ -6,7 +6,6 @@ import { TYPOGRAPHY, TYPOGRAPHY_MODIFIERS } from '../../styles/typography';
 import { COLOR_CLASSES } from '../../styles/colors';
 import { HorizontalSpacer } from '../layout/HorizontalSpacer';
 import { SPACERS } from '../../styles/spacers';
-import { VerticalSpacer } from '../layout/VerticalSpacer';
 import { useWritableValueWithCallbacks } from '../../shared/callbacks/hooks/useWritableValueWithCallbacks';
 import { WithVWC } from '../WithVWC';
 import { RESETS } from '../../styles/resets';
