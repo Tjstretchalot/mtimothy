@@ -131,10 +131,11 @@ export const TempusCover = (): ReactElement => {
       </Paragraph>
       <VerticalSpacer height={SPACERS.small} />
       <Paragraph context={context}>
-        This knowledge makes me a powerful asset for this team, but the most
-        important reason aspect is collaboration and communication. I&rsquo;m
-        excited to share what I know, and even more eager to meet and learn from
-        the developers, designers, scientists, and product managers at Tempus!
+        This knowledge makes me a powerful asset if I join the team, but the
+        most important reason to do so is collaboration and communication.
+        I&rsquo;m excited to share what I know, and even more eager to meet and
+        learn from the developers, designers, scientists, and product managers
+        at Tempus!
       </Paragraph>
       <VerticalSpacer height={SPACERS.large} />
       <Paragraph context={context}>Sincerely,</Paragraph>
