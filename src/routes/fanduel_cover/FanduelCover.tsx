@@ -16,9 +16,9 @@ import { Context } from '../../shared/context/Context';
 import { PadSides } from '../../components/layout/PadSides';
 
 /**
- * Cover letter for Valve's "Steam Software Engineer" position
+ * Cover letter for Fanduel's "Software Engineer" position
  */
-export const ValveCover = (): ReactElement => {
+export const FanduelCover = (): ReactElement => {
   const context = useAttachedContext();
 
   return (
@@ -95,7 +95,7 @@ export const ValveCover = (): ReactElement => {
                         </div>
                         <HorizontalSpacer width={SPACERS.xxsmall} />
                         <a
-                          href="https://mtimothy.com/valve"
+                          href="https://mtimothy.com/fanduel"
                           className={combineClasses(
                             RESETS.anchor,
                             TYPOGRAPHY.fine,
@@ -103,7 +103,7 @@ export const ValveCover = (): ReactElement => {
                             COLOR_CLASSES.color.primary.dark
                           )}
                         >
-                          mtimothy.com/valve
+                          mtimothy.com/fanduel
                         </a>
                       </div>
                       <VerticalSpacer height={0} flexGrow={1} />
@@ -122,25 +122,17 @@ export const ValveCover = (): ReactElement => {
       <Paragraph context={context}>To whom it may concern,</Paragraph>
       <VerticalSpacer height={SPACERS.large} />
       <Paragraph context={context}>
-        I&rsquo;m interested in the Steam Software Engineer position. I have
-        broad and extensive experience building and shipping digital
-        products&ndash;experimenting with new ideas and learning from failure.
+        I&rsquo;m interested in the Software Engineer position in Atlanta. I can
+        deliver maintainable code with pragmatic solutions. I have recently
+        worked in React, and I have a strong record of shipping products on AWS
+        within a fast-paced environment.
       </Paragraph>
       <VerticalSpacer height={SPACERS.small} />
       <Paragraph context={context}>
-        I&rsquo;m a strong, immediate value add for quickly iterating on web
-        tools for Deadlock or the e-commerce platform. However my recent web
-        development work does not mean I shy away from lower-level languages. I
-        started programming as a kid from a C++ book and I&rsquo;ve built
-        multiple amateur games in small groups on the weekends in Monogame. The
-        C# libraries that came from those remain my most starred GitHub
-        repositories.
-      </Paragraph>
-      <VerticalSpacer height={SPACERS.small} />
-      <Paragraph context={context}>
-        As a life-long gamer and programmer from within your community, both
-        physically (WA) and virtually (2,500 matches on Dota 2), I&rsquo;m also
-        confident I&rsquo;ll vibe with the team!
+        Furthermore, I have extensively used relational databases, messaging
+        queues, and simple pub/sub servers in highly concurrent environments via
+        Python. I&rsquo;m quick to learn and adapt to business needs, and
+        excited for growth in a Java stack.
       </Paragraph>
       <VerticalSpacer height={SPACERS.large} />
       <Paragraph context={context}>Sincerely,</Paragraph>

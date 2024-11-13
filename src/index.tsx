@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom/client';
 import './styles/resets.module.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from './routes/home/Home';
-import { ValveCover } from './routes/valve_cover/ValveCover';
 import { MicrosoftCover } from './routes/microsoft_cover/MicrosoftCover';
 import { DellCover } from './routes/dell_cover/DellCover';
+import { FanduelCover } from './routes/fanduel_cover/FanduelCover';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,16 +19,16 @@ const router = createBrowserRouter(
       element: <Home />,
     },
     {
-      path: '/valve',
-      element: <ValveCover />,
-    },
-    {
       path: '/microsoft',
       element: <MicrosoftCover />,
     },
     {
       path: '/dell',
       element: <DellCover />,
+    },
+    {
+      path: '/fanduel',
+      element: <FanduelCover />,
     },
   ],
   {
