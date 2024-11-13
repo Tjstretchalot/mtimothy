@@ -7,6 +7,7 @@ import { Home } from './routes/home/Home';
 import { MicrosoftCover } from './routes/microsoft_cover/MicrosoftCover';
 import { DellCover } from './routes/dell_cover/DellCover';
 import { FanduelCover } from './routes/fanduel_cover/FanduelCover';
+import { TempusCover } from './routes/tempus_cover/TempusCover';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -29,6 +30,10 @@ const router = createBrowserRouter(
     {
       path: '/fanduel',
       element: <FanduelCover />,
+    },
+    {
+      path: '/tempus',
+      element: <TempusCover />,
     },
   ],
   {

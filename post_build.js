@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const targets = ['microsoft', 'dell', 'fanduel'];
+const targets = ['microsoft', 'dell', 'fanduel', 'tempus'];
 
 for (const target of targets) {
   fs.copyFile('build/index.html', `build/${target}.html`, (err) => {
