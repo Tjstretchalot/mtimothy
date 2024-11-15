@@ -176,7 +176,7 @@ export const Home = (): ReactElement => {
             short={
               <Paragraph small>
                 Responsible for converting Figma designs into a responsive web
-                application. Used TypeScirpt (via React) on the frontend with
+                application. Used TypeScript (via React) on the frontend with
                 Python and performant SQL on the backend. Additionally
                 responsible for maintaining infrastructure as code (via Pulumi)
                 to manage the cloud (AWS) resources.
