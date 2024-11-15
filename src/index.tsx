@@ -8,6 +8,7 @@ import { MicrosoftCover } from './routes/microsoft_cover/MicrosoftCover';
 import { DellCover } from './routes/dell_cover/DellCover';
 import { FanduelCover } from './routes/fanduel_cover/FanduelCover';
 import { TempusCover } from './routes/tempus_cover/TempusCover';
+import { SnowflakeCover } from './routes/snowflake_cover/SnowflakeCover';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -34,6 +35,10 @@ const router = createBrowserRouter(
     {
       path: '/tempus',
       element: <TempusCover />,
+    },
+    {
+      path: '/snowflake',
+      element: <SnowflakeCover />,
     },
   ],
   {
