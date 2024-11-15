@@ -85,7 +85,8 @@ export const Home = (): ReactElement => {
             >
               Full Stack Engineer with 4-6 years of experience in Python,
               TypeScript, and SQL. Bonus DevOps responsibility in multiple
-              roles.
+              roles. Have a Bachelor&rsquo;s of Arts in Mathematics from the
+              University of Washington.
             </div>
           </div>
         </div>
