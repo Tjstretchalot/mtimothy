@@ -3,7 +3,6 @@ import { useMapManyVWC } from '../../shared/callbacks/hooks/useMapManyVWC';
 import { setVWC } from '../../shared/callbacks/setVWC';
 import { ValueWithCallbacks } from '../../shared/callbacks/ValueWithCallbacks';
 import { WithStyleVWC } from '../WithStyleVWC';
-import { WithVWC } from '../WithVWC';
 
 /**
  * Convenience function to produce a div with a fixed with and height. The divs

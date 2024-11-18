@@ -1,5 +1,4 @@
 import { createWritableValueWithCallbacks } from '../callbacks/createWritableValueWithCallbacks';
-import { setVWC } from '../callbacks/setVWC';
 import { ContextRaw } from './ContextRaw';
 
 /**

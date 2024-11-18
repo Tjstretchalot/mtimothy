@@ -9,7 +9,6 @@ import { FixedSize } from '../../components/layout/FixedSize';
 import { VerticalSpacer } from '../../components/layout/VerticalSpacer';
 import { SPACERS } from '../../styles/spacers';
 import { TYPOGRAPHY, TYPOGRAPHY_MODIFIERS } from '../../styles/typography';
-import { RESETS } from '../../styles/resets';
 import { HorizontalSpacer } from '../../components/layout/HorizontalSpacer';
 import { ParserUnfriendlyEmail } from '../../components/ParserUnfriendlyEmail';
 import { Context } from '../../shared/context/Context';
