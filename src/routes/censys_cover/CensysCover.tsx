@@ -81,9 +81,9 @@ export const CensysCover = (): ReactElement => {
       <Paragraph context={context}>
         I&rsquo;m interested in the Software Engineer, Distributed Systems
         position. I bring experience in Python, a drive for analytics, and a
-        passion for building and delivering customer features. I live nearby
-        your Seattle hub, and I&rsquo;m excited to bring actionable insights to
-        the world&rsquo;s security teams.
+        passion for building and delivering software. I live nearby your Seattle
+        hub, and I&rsquo;m excited to bring actionable insights to the
+        world&rsquo;s security teams.
       </Paragraph>
       <VerticalSpacer height={SPACERS.large} />
       <Paragraph context={context}>Sincerely,</Paragraph>
