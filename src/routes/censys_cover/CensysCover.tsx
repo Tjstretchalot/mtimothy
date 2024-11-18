@@ -81,7 +81,7 @@ export const CensysCover = (): ReactElement => {
       <Paragraph context={context}>
         I&rsquo;m interested in the Software Engineer, Distributed Systems
         position. I bring experience in Python, a drive for analytics, and a
-        passion for building and delivering software. I live nearby your Seattle
+        passion for building and delivering software. I live near your Seattle
         hub, and I&rsquo;m excited to bring actionable insights to the
         world&rsquo;s security teams.
       </Paragraph>
