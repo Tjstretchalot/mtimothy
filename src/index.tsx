@@ -9,6 +9,7 @@ import { DellCover } from './routes/dell_cover/DellCover';
 import { FanduelCover } from './routes/fanduel_cover/FanduelCover';
 import { TempusCover } from './routes/tempus_cover/TempusCover';
 import { SnowflakeCover } from './routes/snowflake_cover/SnowflakeCover';
+import { CensysCover } from './routes/censys_cover/CensysCover';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -39,6 +40,10 @@ const router = createBrowserRouter(
     {
       path: '/snowflake',
       element: <SnowflakeCover />,
+    },
+    {
+      path: '/censys',
+      element: <CensysCover />,
     },
   ],
   {

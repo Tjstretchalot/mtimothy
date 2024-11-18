@@ -3,6 +3,7 @@ import { useMapManyVWC } from '../../shared/callbacks/hooks/useMapManyVWC';
 import { setVWC } from '../../shared/callbacks/setVWC';
 import { ValueWithCallbacks } from '../../shared/callbacks/ValueWithCallbacks';
 import { WithStyleVWC } from '../WithStyleVWC';
+import { WithVWC } from '../WithVWC';
 
 /**
  * Convenience function to produce a div with a fixed with and height. The divs
@@ -16,20 +17,25 @@ export const FixedSize = (
     className?: string;
 
     /**
-     * If set, we position absolutely to match the parent and hide any overflow.
-     * This is probably what you want if you are putting this as the root component
-     * to avoid the window size not changing to prevent overflow which would have
-     * been fixed if it was reported to javascript
+     * If set, we ensure we will not break reflowing on the parent element.
      */
     allowParentToReflow?: boolean;
   }>
 ) => {
   const inner = (
     <WithStyleVWC
-      style={useMapManyVWC([props.width, props.height], () => ({
-        width: `${props.width.get()}px`,
-        height: `${props.height.get()}px`,
-      }))}
+      style={useMapManyVWC(
+        [props.width, props.height],
+        () => {
+          return {
+            width: `${props.width.get()}px`,
+            height: `${props.height.get()}px`,
+          };
+        },
+        {
+          immediate: true,
+        }
+      )}
       component={(div, style) => (
         <div
           className={props.className}
@@ -42,6 +48,7 @@ export const FixedSize = (
     />
   );
 
+  // This fixes entering developer tools on chrome (esp when changing pixel ratio)
   if (props.allowParentToReflow) {
     return (
       <div

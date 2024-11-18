@@ -18,13 +18,48 @@ export const createRawContextFromWindow = (): [ContextRaw, () => void] => {
   );
 
   const onResize = () => {
-    setVWC(windowWidthVWC, window.innerWidth);
-    setVWC(windowHeightVWC, window.innerHeight);
-    setVWC(pixelRatioVWC, window.devicePixelRatio);
+    const printing = printingMediaRule.matches;
+    const size = printing
+      ? {
+          width: document.body.clientWidth,
+          height: document.body.clientHeight,
+        }
+      : { width: window.innerWidth, height: window.innerHeight };
+    const pixelRatio = printing
+      ? window.devicePixelRatio
+      : window.devicePixelRatio;
+
+    const widthChanged = windowWidthVWC.get() !== size.width;
+    const heightChanged = windowHeightVWC.get() !== size.height;
+    const pixelRatioChanged = pixelRatioVWC.get() !== pixelRatio;
+    const printingChanged = printingVWC.get() !== printing;
+
+    windowWidthVWC.set(size.width);
+    windowHeightVWC.set(size.height);
+    pixelRatioVWC.set(pixelRatio);
+    printingVWC.set(printing);
+
+    if (widthChanged) {
+      windowWidthVWC.callbacks.call();
+    }
+
+    if (heightChanged) {
+      windowHeightVWC.callbacks.call();
+    }
+
+    if (pixelRatioChanged) {
+      pixelRatioVWC.callbacks.call();
+    }
+
+    if (printingChanged) {
+      printingVWC.callbacks.call();
+    }
   };
 
   const recheckPrinting = () => {
-    setVWC(printingVWC, printingMediaRule.matches);
+    if (printingVWC.get() !== printingMediaRule.matches) {
+      onResize();
+    }
   };
 
   window.addEventListener('resize', onResize);

@@ -85,8 +85,7 @@ export const Home = (): ReactElement => {
             >
               Full Stack Engineer with 4-6 years of experience in Python,
               TypeScript, and SQL. Bonus DevOps responsibility in multiple
-              roles. Have a Bachelor&rsquo;s of Arts in Mathematics from the
-              University of Washington.
+              roles. Have a BA in Math from the University of Washington.
             </div>
           </div>
         </div>
@@ -105,12 +104,11 @@ export const Home = (): ReactElement => {
             short={
               <Paragraph small>
                 Responsible for converting Figma designs into a single-page web
-                application, an iOS App Store app, and an Android Play Store
-                app. Used TypeScript (via React and React Native) on the
-                frontend with Python and performant SQL on the backend.
-                Additionally responsible for deploying and maintaining
-                infrastructure as code (via Pulumi) to manage the cloud (AWS)
-                resources.
+                application, an iOS app, and an Android app. Used TypeScript
+                (via React and React Native) on the frontend with Python and
+                performant SQL on the backend. Additionally responsible for
+                deploying and maintaining infrastructure as code (via Pulumi) to
+                manage the cloud (AWS) resources.
               </Paragraph>
             }
             long={
@@ -175,11 +173,11 @@ export const Home = (): ReactElement => {
             context={context}
             short={
               <Paragraph small>
-                Responsible for converting Figma designs into a responsive web
-                application. Used TypeScript (via React) on the frontend with
-                Python and performant SQL on the backend. Additionally
-                responsible for maintaining infrastructure as code (via Pulumi)
-                to manage the cloud (AWS) resources.
+                Responsible for converting Figma designs into a website. Used
+                TypeScript (via React) on the frontend with Python and
+                performant SQL on the backend. Additionally responsible for
+                maintaining infrastructure as code (via Pulumi) to manage the
+                cloud (AWS) resources.
               </Paragraph>
             }
             long={
@@ -303,11 +301,8 @@ export const Home = (): ReactElement => {
               COLOR_CLASSES.color.gray.dark
             )}
           >
-            My personal favorite project, built in college, which wraps ffmpeg
-            in a convenient interface for creating animations programatically.
-            It's especially focused on when frame generation is computationally
-            expensive and many cores were available, as at the time I had access
-            by request to the universities 64-core machines.
+            Wraps ffmpeg in a convenient interface for creating videos
+            programatically.
           </div>
           <VerticalSpacer height={SPACERS.small} />
           <ProjectTitleLine
@@ -320,8 +315,8 @@ export const Home = (): ReactElement => {
               COLOR_CLASSES.color.gray.dark
             )}
           >
-            My most starred project (50+ stars) has 2D math primitives for C#,
-            intended for monogame projects.
+            My most starred project (50+ stars) has 2D geometry primitives for
+            C#.
           </div>
           <VerticalSpacer height={SPACERS.small} />
           <ProjectTitleLine

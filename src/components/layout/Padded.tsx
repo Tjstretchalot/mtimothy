@@ -78,6 +78,7 @@ export const Padded = (
         {
           outputEqualityFn: (a, b) =>
             a.horizontal === b.horizontal && a.vertical === b.vertical,
+          immediate: true,
         }
       );
       const cleanupSetter = withVWC(mappedVWC, (mapped) =>
@@ -107,17 +108,18 @@ export const Padded = (
           a.left === b.left &&
           a.right === b.right &&
           a.bottom === b.bottom,
+        immediate: true,
       }
     );
-    const cleanupSetter = withVWC(mappedVWC, (mapped) =>
+    const cleanupSetter = withVWC(mappedVWC, (mapped) => {
       setVWC(
         styleVWC,
         {
           padding: `${mapped.top}px ${mapped.right}px ${mapped.bottom}px ${mapped.left}px`,
         },
         setVWCProps
-      )
-    );
+      );
+    });
     return () => {
       cleanupSetter();
       cleanupMapped();

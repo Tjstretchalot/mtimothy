@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from 'react';
+import { memo, ReactElement, useEffect } from 'react';
 import { useWritableValueWithCallbacks } from '../shared/callbacks/hooks/useWritableValueWithCallbacks';
 import { setVWC } from '../shared/callbacks/setVWC';
 import { WithVWC } from './WithVWC';
@@ -8,7 +8,7 @@ import { LAYOUT } from '../styles/layout';
  * Renders our email address in a way that is annoying for parsers to read, both
  * in the javascript and in the HTML, but easy for humans to read.
  */
-export const ParserUnfriendlyEmail = (): ReactElement => {
+export const ParserUnfriendlyEmail = memo((): ReactElement => {
   const partsVWC = useWritableValueWithCallbacks<ReactElement[] | null>(
     () => null
   );
@@ -88,7 +88,7 @@ export const ParserUnfriendlyEmail = (): ReactElement => {
       }
     />
   );
-};
+});
 
 (window as any).generateNewObfuscatedValue = async (value: string) => {
   const encodedValue = new TextEncoder().encode(value);

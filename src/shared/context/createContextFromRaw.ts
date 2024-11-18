@@ -43,7 +43,8 @@ export const createContextFromRaw = (
     [windowWidthVWC, contentWidthVWC],
     () => {
       return (windowWidthVWC.get() - contentWidthVWC.get()) / 2;
-    }
+    },
+    { immediate: true }
   );
   const [rightPaddingVWC, cleanupRightPadding] = mapManyVWC(
     [windowWidthVWC, contentWidthVWC, leftPaddingVWC],
@@ -51,7 +52,8 @@ export const createContextFromRaw = (
       return (
         windowWidthVWC.get() - contentWidthVWC.get() - leftPaddingVWC.get()
       );
-    }
+    },
+    { immediate: true }
   );
 
   const topPaddingVWC = createWritableValueWithCallbacks(SPACERS.medium);
@@ -62,7 +64,8 @@ export const createContextFromRaw = (
       return (
         windowHeightVWC.get() - topPaddingVWC.get() - bottomPaddingVWC.get()
       );
-    }
+    },
+    { immediate: true }
   );
 
   return [
