@@ -96,19 +96,20 @@ export const Home = (): ReactElement => {
           <SectionTitle printing={context.printing}>Experience</SectionTitle>
 
           <Experience
-            title="Full Stack Engineer"
+            title="Founding Full Stack Engineer"
             subtitle="Oseh"
             detail="Mar '22 - Nov '24"
             highlight={'TypeScript/Python'}
             context={context}
             short={
               <Paragraph small>
-                Responsible for converting Figma designs into a single-page web
-                application, an iOS app, and an Android app. Used TypeScript
-                (via React and React Native) on the frontend with Python and
-                performant SQL on the backend. Additionally responsible for
-                deploying and maintaining infrastructure as code (via Pulumi) to
-                manage the cloud (AWS) resources.
+                Response for a unified single-page web application, an iOS app,
+                and an Android app. Designs received via Figma. Used TypeScript
+                (via React and React Native) on the frontend. Used Python / SQL
+                on the backend. Integrated with LLMs (via OpenAI) and other
+                generative ai (such as Stability AI). Additionally responsible
+                for deploying and maintaining infrastructure as code (via
+                Pulumi) to manage the cloud (AWS) resources.
               </Paragraph>
             }
             long={
@@ -166,16 +167,16 @@ export const Home = (): ReactElement => {
           />
           <JobSpacer printing={context.printing} />
           <Experience
-            title="Full Stack Engineer"
+            title="Founding Full Stack Engineer"
             subtitle="sourced by"
             detail="Aug '21 - Mar '22"
             highlight="TypeScript/Python"
             context={context}
             short={
               <Paragraph small>
-                Responsible for converting Figma designs into a website. Used
-                TypeScript (via React) on the frontend with Python and
-                performant SQL on the backend. Additionally responsible for
+                Responsible a multi-page web application. Designs received via
+                Figma. Used TypeScript (via React) on the frontend with Python
+                and performant SQL on the backend. Additionally responsible for
                 maintaining infrastructure as code (via Pulumi) to manage the
                 cloud (AWS) resources.
               </Paragraph>
@@ -227,10 +228,9 @@ export const Home = (): ReactElement => {
             context={context}
             short={
               <Paragraph small>
-                Responsible for building APIs to support product goals within an
-                agile environment. Time evenly divided between optimizing and
-                refactoring an existing codebase and building new features. Used
-                Ruby on Rails and SQL.
+                Responsible for backend web development. Time evenly divided
+                between optimizing and refactoring an existing codebase and
+                building new features. Used Ruby on Rails and SQL.
               </Paragraph>
             }
             long={
