@@ -83,10 +83,9 @@ export const Home = (): ReactElement => {
                 COLOR_CLASSES.color.gray.dark
               )}
             >
-              Seattle-based Full Stack Engineer with 4-6 years of experience in
-              Python, TypeScript, and SQL. Bonus AWS DevOps responsibility in
-              multiple roles. Have a BA in Math from the University of
-              Washington.
+              Full Stack Engineer with 4-6 years of experience in Python,
+              TypeScript, and SQL. Bonus AWS DevOps responsibility in multiple
+              roles. Have a BA in Math from the University of Washington.
             </div>
           </div>
         </div>
@@ -261,14 +260,14 @@ export const Home = (): ReactElement => {
               COLOR_CLASSES.color.gray.dark
             )}
           >
-            I'm always tinkering on something, and with over 90 public
-            repositories going back to 2012, consisting mostly of my hobby
-            projects and ideas, it's fun to look back to see what worked.
+            I&rsquo;m always tinkering on something, and with over 90 public
+            repositories going back to 2012, there&rsquo;s plenty of things I
+            love to talk about
           </div>
           <VerticalSpacer height={SPACERS.small} />
           <ProjectTitleLine
-            title="mtimothy.com"
-            src="github.com/Tjstretchalot/mtimothy"
+            title="lonelyps"
+            src="github.com/Tjstretchalot/lonelypsc"
           />
           <div
             className={combineClasses(
@@ -276,8 +275,8 @@ export const Home = (): ReactElement => {
               COLOR_CLASSES.color.gray.dark
             )}
           >
-            A React application served via GitHub Pages that I print-to-pdf to
-            get this resume.
+            Current project; an elegant distributed pub/sub system in Python. 3
+            parts: protocol, client, server
           </div>
           <VerticalSpacer height={SPACERS.small} />
           <ProjectTitleLine title="rqdb" src="github.com/Tjstretchalot/rqdb" />
@@ -342,6 +341,22 @@ export const Home = (): ReactElement => {
             <SkillLine title="Typescript" duration="4yr" />
             <SkillLine title="AWS" duration="6yr" />
             <SkillLine title="Linux" duration="6yr" />
+          </div>
+          <HorizontalSpacer width={0} flexGrow={1} />
+        </div>
+      </PadSides>
+      <VerticalSpacer height={SPACERS.xsmall} />
+      <PadSides context={context}>
+        <div className={LAYOUT.row}>
+          <HorizontalSpacer width={0} flexGrow={1} />
+          <div
+            className={combineClasses(
+              TYPOGRAPHY.fine,
+              TYPOGRAPHY_MODIFIERS.tight,
+              COLOR_CLASSES.color.gray.smoke
+            )}
+          >
+            Based in Greater Seattle Area
           </div>
           <HorizontalSpacer width={0} flexGrow={1} />
         </div>
