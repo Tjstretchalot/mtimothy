@@ -83,9 +83,10 @@ export const Home = (): ReactElement => {
                 COLOR_CLASSES.color.gray.dark
               )}
             >
-              Full Stack Engineer with 4-6 years of experience in Python,
-              TypeScript, and SQL. Bonus DevOps responsibility in multiple
-              roles. Have a BA in Math from the University of Washington.
+              Seattle-based Full Stack Engineer with 4-6 years of experience in
+              Python, TypeScript, and SQL. Bonus AWS DevOps responsibility in
+              multiple roles. Have a BA in Math from the University of
+              Washington.
             </div>
           </div>
         </div>
@@ -106,10 +107,9 @@ export const Home = (): ReactElement => {
                 Response for a unified single-page web application, an iOS app,
                 and an Android app. Designs received via Figma. Used TypeScript
                 (via React and React Native) on the frontend. Used Python / SQL
-                on the backend. Integrated with LLMs (via OpenAI) and other
-                generative ai (such as Stability AI). Additionally responsible
-                for deploying and maintaining infrastructure as code (via
-                Pulumi) to manage the cloud (AWS) resources.
+                on the backend. Additionally responsible for deploying and
+                maintaining infrastructure as code (via Pulumi) to manage the
+                cloud (AWS) resources.
               </Paragraph>
             }
             long={
@@ -329,9 +329,9 @@ export const Home = (): ReactElement => {
               COLOR_CLASSES.color.gray.dark
             )}
           >
-            The project with by far the most users; powers the reddit bot that
-            serves the r/borrow subreddit. Originally written in Java, now has a
-            website (https://redditloans.com) and is in Python/React.
+            A hobby project with a surprising number of users; powers the reddit
+            bot that serves the r/borrow subreddit. Originally written in Java,
+            now has a website (https://redditloans.com) and is in Python/React.
           </div>
         </div>
       </PadSides>
