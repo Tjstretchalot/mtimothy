@@ -319,10 +319,7 @@ export const Home = (): ReactElement => {
             C#.
           </div>
           <VerticalSpacer height={SPACERS.small} />
-          <ProjectTitleLine
-            title="LoansBot"
-            src="https://github.com/LoansBot"
-          />
+          <ProjectTitleLine title="LoansBot" src="github.com/LoansBot" />
           <div
             className={combineClasses(
               TYPOGRAPHY.fine,
